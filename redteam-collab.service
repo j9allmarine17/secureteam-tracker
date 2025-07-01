@@ -1,0 +1,17 @@
+[Unit]
+Description=RedTeam Collaboration Platform
+After=network.target
+
+[Service]
+Type=simple
+User=jamesga
+WorkingDirectory=/home/jamesga/Complete SecureTeamTracker
+ExecStart=/usr/bin/node --import tsx/esm server/index.ts
+Restart=on-failure
+RestartSec=10
+Environment=NODE_ENV=production
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
